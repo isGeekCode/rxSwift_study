@@ -21,10 +21,15 @@ class ViewController: UITableViewController {
     }
 
     @IBAction func exJust1() {
+        Observable.just("Hello World")
+            .subscribe(onNext: { str in
+                print(str)
+            })
+            .disposed(by: disposeBag)
+        
+        /** 에러테스트용
         Observable.from(["RxSwift", "In", "4", "Hours"])
-
-            .sub
-            .single()
+//            .single()
             .subscribe(onNext: { s in
                 print(s)
             }, onError: { err in
@@ -35,6 +40,7 @@ class ViewController: UITableViewController {
                 print("disposed")
             })
             .disposed(by: disposeBag)
+         */
     }
 
     @IBAction func exJust2() {
